@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="Register.css">
+</head>
+<body>
+      <div class="login-container">
+        <h1 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Create a new account</h1>
+
+         <div class="form-group">
+            <label for="text" >Name</label>
+            <input type="text" id="password" placeholder="Your Name">
+        </div>
+        
+        <div class="form-group">
+            <label for="email">e-mail</label>
+            <input type="email" id="email" placeholder="Your e-mail">
+        </div>
+
+         <div class="form-group">
+            <label for="password" >Password</label>
+            <input type="password" id="password" placeholder="Your password">
+        </div>
+        
+        <div class="form-group">
+            <label for="password" > Confirm Password</label>
+            <input type="password" id="password" placeholder="Confirm password">
+        </div>
+
+         <div class="form-group">
+            
+            <label for="ageInput">Enter your age:</label>
+                <input type="number" id="ageInput" placeholder="Enter age">
+                   <button class="register-btn" onclick="checkAge()">Create</button>
+                    <script src="RegisterScript.js"></script>
+                    <p id="message"></p>
+        </div>
+        
+        
+        
+    </div>
+</body>
+</html>
+
