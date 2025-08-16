@@ -37,7 +37,9 @@ label {
 
 input[type="email"],
 input[type="password"],
-input[type="text"]{
+input[type="text"],
+input[type="number"],
+input[type="date"]{
     width: 100%;
     padding: 12px;
     border: 1px solid #ddd;
@@ -52,17 +54,50 @@ input[type="text"]{
     
 }
 
-.register-btn {
-    padding: 10px 20px; 
-    background-color: red;
-    color: white;
-    border-radius: 30px;
-    width: 150px;
+/* Match login page button base styles */
+button {
+    padding: 12px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
 }
 
+/* Match login page register button */
+.register-btn {
+    background-color: red;
+    color: white;
+    border-radius: 20px;
+    width: 165px;
+}
 
 .options input[type="checkbox"] {
     margin-right: 5px;
+}
+
+/* Added: inline error styles for production-ready UX */
+.field-error {
+    color: #b00020;
+    font-size: 12px;
+    margin-top: 6px;
+    padding-left: 6px;
+}
+
+[aria-invalid="true"] {
+    border-color: #b00020 !important;
+    outline: none;
+}
+
+.status-message {
+    margin-top: 8px;
+    font-size: 14px;
+}
+.status-message.error {
+    color: #b00020;
+}
+.status-message.success {
+    color: #2e7d32;
 }
 
 
