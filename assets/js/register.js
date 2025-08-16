@@ -59,7 +59,7 @@
 				submitButton.setAttribute("disabled", "true");
 			}
 			announce(announcementElement, "Account created successfully. Redirecting...", "success");
-			window.location.assign("/index.html");
+			window.location.assign("../../index.html");
 		});
 	});
 
