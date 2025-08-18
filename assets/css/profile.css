@@ -4,6 +4,7 @@ body {
   padding: 0;
   background-color: #f9f9f9;
   color: #333;
+
 }
 
 .block-container {
@@ -85,3 +86,36 @@ header {
   text-size-adjust: 100px;
   height: 80px;
 }
+
+.sidebar {
+      width: 220px;
+      background: white;
+      color: black;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      padding: 20px 0;
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 20px;
+    }
+
+    .sidebar a {
+      padding: 15px 20px;
+      text-decoration: none;
+      color: black;
+      display: block;
+      transition: background 0.3s;
+    }
+
+    .sidebar a:hover {
+      background: #cde4e6;
+    }
+
+    
