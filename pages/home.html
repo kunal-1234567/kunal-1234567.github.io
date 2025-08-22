@@ -3,101 +3,119 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> Homepage</title>
+  <title>SplitFriends - Expense Tracker</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
   <link rel="stylesheet" href="../assets/css/home.css">
 </head>
 <body>
-  <header>
-    
-        <h1>SplitFriends</h1>
-
-        <form action="profile.html">
-          <button type="submit">My Profile</button>
-        </form>
-
-  </header>
-
-  <div class="Last five activities">
-    <div class="recent-activity-block">
-  <div class="activity-header">
-    <span>Last Activities</span>
-  </div>
-  <table class="activity-table">
-    <thead>
-      <tr>
-        <th>Person</th>
-        <th>Date</th>
-        <th>Amount</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Kanak</td>
-        <td>Feb 14, 2011 7:01 PM</td>
-        <td>200</td>
-      </tr>
-      <tr>
-        <td>Himanshu</td>
-        <td>Jan 10, 2011 3:10 PM</td>
-        <td>300</td>
-      </tr>
-      <tr>
-        <td>Manye</td>
-        <td>Apr 8, 2010 10:15 AM</td>
-        <td>100</td>
-      </tr>
-      <tr>
-        <td>Muskan</td>
-        <td>Feb 8, 2010 2:45 AM</td>
-        <td>1000</td>
-      </tr>
-      <tr>
-        <td>Jayant</td>
-        <td>Apr 9, 2009 10:58 AM</td>
-        <td>170</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-  </div>
-
-  <main class="block-container">
+  <div class="app-container">
    
-    <div class="block">
-      <h2>Groups</h2>
-      <p>Existed groups</p>
-    </div>
+    <header class="app-header">
+      <h1><i class="fas fa-wallet"></i> SplitFriends</h1>
+      
+      <form action="../pages/profile.html">
+        <button type="submit">My Profile</button>
+      </form>
+    </header>
+    
+    <main class="dashboard">
+      
+      <section class="tracker-section">
+        <div class="balance-card">
+          <h3>Current Balance</h3>
+          <h2 id="balance">0</h2>
+          <div class="summary">
+            <div class="income-summary">
+              <span>you are owed</span>
+              <span id="money-plus" class="positive">0</span>
+            </div>
+            <div class="expense-summary">
+              <span>you owe</span>
+              <span id="money-minus" class="negative">0</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+        <section class="transactions-section">
+        
+          <div class="section-header">
+            <h3>Recent Transactions</h3>
+            
+          </div>
+          <ul id="transactions">
+           
+          </ul>
+          </section>
 
     
-    <div class="block">
-      <h2>Create</h2>
-      <p>to create a new group</p>
-    </div>
+      <section class="block-container">
+        <div class="block">
+        <form action="">
+          <button>Groups</button>
+        </form>
+          <p>Existed groups</p>
+        </div>
 
-    
-    <div class="block">
-      <h2>Recent Activity</h2>
-      <p>your recent activities</p>
-    </div>
+        <div class="block">
+           <form action="">
+          <button>Create</button>
+        </form>
+          <p>to create a new group</p>
+        </div>
 
-    <div class="block">
-      <h2>To Pay</h2>
-      <p>Amount you have to pay</p>
-    </div>
+        <div class="block">
+           <form action="">
+          <button>All transactions</button>
+        </form>
+          <p>your all transactions</p>
+        </div>
+
+        <div class="block">
+          <h2>To Collect</h2>
+          <p>Amount you have to collect</p>
+        </div>
+      </section>
+
+      <section class="add-transaction">
+       <div class="add-transaction">
+          <h3>Add Transaction</h3>
+            <form id="form">
+              <div class="form-group">
+                <label for="text"> Description</label>
+                <input type="text" id="text" placeholder="e.g. shopping" required>
+              </div>
+            
+            <div class="form-group">
+              <label for="amount">Amount</label>
+              <input type="number" id="amount" placeholder="0.00" required>
+            </div>
+            
+            <div class="form-group radio-group">
+              <div class="radio-option">
+                <input type="radio" id="income" name="type" value="income" checked>
+                <label for="income"><i class="fas fa-arrow-down"></i>Payee</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="expense" name="type" value="expense">
+                <label for="expense"><i class="fas fa-arrow-up"></i>Payer</label>
+              </div>
+            </div>
+
+            </section>
+            
+            <button type="submit" class="submit-btn">
+               Add Transaction
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
 
 
-    <div class="block">
-      <h2>To Collect</h2>
-      <p>Amount you have to collect</p>
-    </div>
 
-    <div class="block">
-      <h2>Balance</h2>
-      <p>Your balance</p>
-    </div>
-
-
-
-</main>
+  <script src="app.js"></script>
 </body>
 </html>

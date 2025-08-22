@@ -1,133 +1,56 @@
-"use strict";
-(function () {
-	const MIN_AGE = 16;
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("registerForm");
+  const nameField = document.getElementById("name");
+  const emailField = document.getElementById("email");
+  const password = document.getElementById("password");
+  const confirmPassword = document.getElementById("confirmPassword");
+  const dob = document.getElementById("ageInput");
+  const message = document.getElementById("message");
 
-	document.addEventListener("DOMContentLoaded", function onReady() {
-		const formElement = document.getElementById("registerForm");
-		const submitButton = document.getElementById("registerSubmit");
-		const announcementElement = document.getElementById("message");
+  form.addEventListener("submit", (e) => {
+    e.preventDefault(); // stop form from submitting immediately
+    message.textContent = ""; // clear old messages
+    message.style.color = "red";
 
-		if (!formElement) {
-			return;
-		}
+    // saari details check karne ke liye ki fill ki h ya nhi 
+    if (
+      nameField.value.trim() === "" ||
+      emailField.value.trim() === "" ||
+      password.value.trim() === "" ||
+      confirmPassword.value.trim() === "" ||
+      dob.value.trim() === ""
+    ) {
+      message.textContent = "❌ Please complete all fields.";
+      return;
+    }
 
-		formElement.addEventListener("submit", function handleSubmit(event) {
-			event.preventDefault();
-			clearAllErrors();
+    //  password checker
+    if (password.value.trim() !== confirmPassword.value.trim()) {
+      message.textContent = "❌ Passwords do not match.";
+      return;
+    }
 
-			const nameValue = getTrimmedValue("name");
-			const emailValue = getTrimmedValue("email");
-			const passwordValue = getValue("password");
-			const confirmPasswordValue = getValue("confirmPassword");
-			const dobRawValue = getTrimmedValue("ageInput");
+   
+    // age checker
+    const birthDate = new Date(dob.value);
+    const today = new Date();
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDiff = today.getMonth() - birthDate.getMonth();
 
-			const validationErrors = [];
+    // adjust if birthday hasn't happened yet this year
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
 
-			if (!nameValue) {
-				validationErrors.push({ fieldId: "name", message: "Name is required." });
-			}
+    if (age < 16) {
+      message.textContent = " You must be at least 16 years old to register.";
+      return;
+    }
 
-			if (!emailValue || !isValidEmail(emailValue)) {
-				validationErrors.push({ fieldId: "email", message: "Enter a valid email address." });
-			}
-
-			if (!passwordValue || passwordValue.length < 6) {
-				validationErrors.push({ fieldId: "password", message: "Password must be at least 6 characters." });
-			}
-
-			if (passwordValue !== confirmPasswordValue) {
-				validationErrors.push({ fieldId: "confirmPassword", message: "Passwords do not match." });
-			}
-
-			const dobParts = parseISODateParts(dobRawValue);
-			if (!dobParts) {
-				validationErrors.push({ fieldId: "ageInput", message: "Enter a valid date of birth." });
-			} else {
-				const ageValue = calculateAgeFromParts(dobParts);
-				if (ageValue < MIN_AGE) {
-					validationErrors.push({ fieldId: "ageInput", message: `You must be at least ${MIN_AGE} years old.` });
-				}
-			}
-
-			if (validationErrors.length > 0) {
-				validationErrors.forEach(function (error) { setFieldError(error.fieldId, error.message); });
-				announce(announcementElement, `Please correct ${validationErrors.length} field${validationErrors.length > 1 ? "s" : ""}.`, "error");
-				return;
-			}
-
-			if (submitButton) {
-				submitButton.setAttribute("disabled", "true");
-			}
-			announce(announcementElement, "Account created successfully. Redirecting...", "success");
-			window.location.assign("../../index.html");
-		});
-	});
-
-	function getValue(elementId) {
-		var element = document.getElementById(elementId);
-		return element && "value" in element ? element.value : "";
-	}
-
-	function getTrimmedValue(elementId) {
-		return getValue(elementId).trim();
-	}
-
-	function setFieldError(elementId, errorMessage) {
-		var input = document.getElementById(elementId);
-		if (!input) return;
-
-		input.setAttribute("aria-invalid", "true");
-		var errorElementId = elementId + "-error";
-		var errorElement = document.getElementById(errorElementId);
-		if (!errorElement) {
-			errorElement = document.createElement("div");
-			errorElement.id = errorElementId;
-			errorElement.className = "field-error";
-			input.insertAdjacentElement("afterend", errorElement);
-		}
-		errorElement.textContent = errorMessage;
-	}
-
-	function clearAllErrors() {
-		var errorElements = document.querySelectorAll(".field-error");
-		errorElements.forEach(function (el) { el.remove(); });
-		var invalidElements = document.querySelectorAll('[aria-invalid="true"]');
-		invalidElements.forEach(function (el) { el.removeAttribute("aria-invalid"); });
-	}
-
-	function isValidEmail(email) {
-		return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
-	}
-
-	function announce(element, message, type) {
-		if (!element) return;
-		element.textContent = message;
-		if (type === "error") {
-			element.classList.remove("success");
-			element.classList.add("status-message", "error");
-		} else if (type === "success") {
-			element.classList.remove("error");
-			element.classList.add("status-message", "success");
-		}
-	}
-
-	function parseISODateParts(value) {
-		var match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value);
-		if (!match) return null;
-		var year = parseInt(match[1], 10);
-		var month = parseInt(match[2], 10);
-		var day = parseInt(match[3], 10);
-		if (month < 1 || month > 12 || day < 1 || day > 31) return null;
-		return { year: year, month: month, day: day };
-	}
-
-	function calculateAgeFromParts(parts) {
-		var today = new Date();
-		var age = today.getFullYear() - parts.year;
-		var monthDiff = (today.getMonth() + 1) - parts.month;
-		if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < parts.day)) {
-			age--;
-		}
-		return age;
-	}
-})();
+   
+    message.style.color = "green";
+    message.textContent = "✔ Registration successful!";
+    window.location.assign("../../index.html")
+   
+  });
+});
