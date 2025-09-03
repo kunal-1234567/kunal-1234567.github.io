@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transaction Tracker</title>
+  <link rel="stylesheet" href="../assets/css/add-transaction.css">
+</head>
+<body>
+  <div class="container">
+    <div class="add-transaction">
+      <h3>Add Transaction</h3>
+      <form id="form">
+        <div class="form-group">
+          <label for="text">Description</label>
+          <input type="text" id="text" placeholder="e.g. Groceries" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="amount">Amount</label>
+          <input type="number" id="amount" placeholder="0.00" required>
+        </div>
+        
+        <div class="form-group radio-group">
+          <div class="radio-option">
+            <input type="radio" id="income" name="type" value="income" checked>
+            <label for="income">You are owed</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="expense" name="type" value="expense">
+            <label for="expense">You owe</label>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn">Add Transaction</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

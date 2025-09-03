@@ -29,7 +29,7 @@
       </ul>
       <div class="profile-btn">
         <form action="../pages/profile.html">
-          <button type="submit"><i class="fas fa-user-circle"></i> My Profile</button>
+          <button type="submit">K</button>
         </form>
       </div>
     </nav>
@@ -59,54 +59,43 @@
       <div class="transactions-section">
         <div class="section-header">
           <h3>Recent Activity</h3>
+          <a href="" style="text-decoration: none;">view all</a>
           
         </div>
         <ul id="transactions">
-          <!-- Transactions will appear here -->
+         
         </ul>
       </div>
 
+      
+
      
-      <div class="add-transaction">
-        <h3>Add Expense</h3>
-        <form id="form">
-          <div class="form-group">
-            <label for="text"> Description</label>
-            <input type="text" id="text" placeholder="e.g. Groceries" required>
-          </div>
-          
-          <div class="form-group">
-            <label for="amount"></i> Amount</label>
-            <input type="number" id="amount" placeholder="0.00" required>
-          </div>
-          
-          <div class="form-group radio-group">
-            <div class="radio-option">
-              <input type="radio" id="income" name="type" value="income" checked>
-              <label for="income"><i class="fas fa-arrow-down"></i> Income</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" id="expense" name="type" value="expense">
-              <label for="expense"><i class="fas fa-arrow-up"></i> Expense</label>
-            </div>
-          </div>
-          
-          <button type="submit" class="submit-btn">
-            <i class="fas fa-plus"></i> Add Expense
-          </button>
-        </form>
-      </div>
+      
     </main>
   </div>
 
-   <footer class="footer">
-    <p>&copy; 2025 SplitFriends. All rights reserved.</p>
-    <div class="footer-links">
-      <a href="#">Privacy Policy</a> |
-      <a href="#">Terms of Service</a> |
-      <a href="contact.html">Contact</a>
-    </div>
-    </footer>
+  <div class="blocks-container">
+
+  <div class="block">
+    <h4>Time to add an expense </h4>
+    <form action="add-transaction.html">
+    <button class="btn btn-green">+ Add Transaction</button>
+    </form>
+  </div>
+
+  
+  <div class="block">
+    <h2>Groups</h2>
+    <button class="btn btn-purple"> Create Group</button>
+    
+    <button class="btn btn-blue"> Add Friend</button>
+  </div>
+</div>
+
+  
+
+
+   
 
   
   <script src="../assets/js/home.js"></script>

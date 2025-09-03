@@ -19,12 +19,12 @@ h1 {
 
 
 .profile-img {
-  width: 150px;   /* adjust size */
+  width: 150px;   
   height: 150px;
-  border-radius: 50%; /* makes it round */
-  object-fit: cover;  /* prevents stretching */
-  margin-top: 20px;   /* space from top */
-  border: 3px solid #333; /* optional border */
+  border-radius: 50%; 
+  object-fit: cover;  
+  margin-top: 20px;   
+  border: 3px solid #333; 
 }
 
 .profile-info p {
