@@ -1,108 +1,97 @@
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    margin-top: 140px;
-    display: flex;
-    flex-direction: column;  
-    align-items: center;    
-    min-height: 100vh;      
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;     /* Centers vertically */
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+}
+
+.main-container {
+  display: flex;
+  width: 80%;
+
+  justify-content: space-between;
+  align-items: center;
 }
 
 
-.welcome-heading {
-    margin-top: 40px;
-    font-size: 80px;
-    font-weight: 40px;
-    color: red;
-    text-align: center;
-    
+.logo {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+ 
 }
 
-
+.logo img {
+  max-width: 400px;
+  height: 400px;
+   border-radius: 50%;
+}
 
 
 .login-container {
-    background-color: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    width: 350px;
-    margin-top: 40px;
-    
- }
+  flex: 1;
+  padding: 30px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+  background: #fff;
+}
 
-h1 {
-    text-align: left;
-    margin-bottom: 25px;
-    font-size: 24px;
-    color: #333;
+.login-container h1 {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-bottom: 20px;
 }
 
 .form-group {
-    margin-bottom: 20px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-bottom: 15px;
 }
 
-label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: #555;
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
 }
 
-input[type="email"],
-input[type="password"] {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 20px;
-    box-sizing: border-box;
-    font-size: 16px;
+#message {
+  color: red;
+  font-weight: bold;
 }
+
 
 .button-group {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 25px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
 }
 
-button {
-    padding: 12px;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
+.login-btn, .register-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  width: 265px;
 }
 
 .login-btn {
-    background-color: red;
-    color: white;
-    width: 165px;
+  background-color: red;
+  color: white;
 }
 
 .register-btn {
-    background-color: red;
-    color: white;
-    width: 165px;
+  background-color: red;
+  color: white;
+  
 }
+
 
 .options {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-    font-size: 14px;
-    color: #555;
-}
-
-.options a {
-    color: #4285f4;
-}
-
-.options a:hover {
-    text-decoration: underline;
-}
-
-.options input[type="checkbox"] {
-    margin-right: 5px;
+  margin-top: 15px;
+  text-align: center;
 }

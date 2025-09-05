@@ -27,15 +27,28 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 15px 20px;
-  border-radius: 10px;
+  border-radius: 30px;
   margin-bottom: 25px;
 }
 
-.logo h1 {
+.logo img{
   font-size: 22px;
   display: flex;
   align-items: center;
   gap: 8px;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+
+.profile-btn img{
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
 }
 
 .nav-links {
@@ -56,8 +69,8 @@ body {
 }
 
 .profile-btn button {
-  width: 40px;   
-  height: 40px;
+  width: 60px;   
+  height: 60px;
   border-radius: 50%; 
   object-fit: cover;  
   border: 1px solid #333; 
@@ -138,7 +151,7 @@ body {
 
 
 
-/* Container for blocks */
+
 .blocks-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -146,23 +159,24 @@ body {
   margin: 20px;
 }
 
-/* Each block/card */
 .block {
   background: #ffffff;
   border-radius: 15px;
   padding: 20px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   text-align: center;
+  
 }
 
-/* Heading */
 .block h2 {
   font-size: 1.3rem;
   margin-bottom: 15px;
   color: #333;
 }
 
-/* Buttons (default style) */
+
+
+
 .btn {
   display: block;
   width: 100%;

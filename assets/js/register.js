@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const confirmPassword = document.getElementById("confirmPassword");
   const dob = document.getElementById("ageInput");
   const message = document.getElementById("message");
+  const mobile = document.getElementById("mo-number");
+
 
   form.addEventListener("submit", (e) => {
     e.preventDefault(); // stop form from submitting immediately
@@ -18,26 +20,28 @@ document.addEventListener("DOMContentLoaded", () => {
       emailField.value.trim() === "" ||
       password.value.trim() === "" ||
       confirmPassword.value.trim() === "" ||
-      dob.value.trim() === ""
+      dob.value.trim() === "" ||
+      mobile.value.trim() ===""
+      
     ) {
       message.textContent = "❌ Please complete all fields.";
       return;
     }
 
-    //  password checker
+   
     if (password.value.trim() !== confirmPassword.value.trim()) {
       message.textContent = "❌ Passwords do not match.";
       return;
     }
 
    
-    // age checker
+   
     const birthDate = new Date(dob.value);
     const today = new Date();
     let age = today.getFullYear() - birthDate.getFullYear();
     const monthDiff = today.getMonth() - birthDate.getMonth();
 
-    // adjust if birthday hasn't happened yet this year
+   
     if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
       age--;
     }
