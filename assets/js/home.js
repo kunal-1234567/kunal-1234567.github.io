@@ -40,3 +40,5 @@ form.addEventListener("submit", function (e) {
   text.value = "";
   amount.value = "";
 });
+
+

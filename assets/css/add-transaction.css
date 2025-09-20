@@ -1,108 +1,90 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #dfe9f3, #ffffff);
-  height: 100vh;
+  background: #f4f6fa;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  margin: 0;
 }
 
-.container {
-  background: #fff;
-  padding: 30px 40px;
-  border-radius: 16px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-  width: 450px;
-}
-
-h3 {
-  margin-bottom: 20px;
+.transaction-container {
+  background: white;
+  padding: 20px;
+  margin-top: 50px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  width: 400px;
   text-align: center;
-  color: #333;
 }
 
-.form-group {
+.title {
+  font-size: 22px;
+  font-weight: bold;
   margin-bottom: 15px;
 }
 
-label {
-  font-weight: bold;
-  display: block;
-  margin-bottom: 6px;
-  color: #444;
+.subtitle {
+  font-size: 18px;
+  margin: 15px 0 10px;
+  font-weight: 600;
 }
 
-input[type="text"], 
-input[type="number"] {
+.input {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  outline: none;
-  transition: border 0.2s;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 14px;
 }
 
-input:focus {
-  border-color: #007bff;
-}
-
-.radio-group {
+.friends-list {
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
   margin-bottom: 20px;
 }
 
-.radio-option {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-weight: bold;
-  color: #555;
+.friend-btn {
+  padding: 8px 15px;
+  border-radius: 8px;
+  border: none;
+  background: #e0e0e0;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.friend-btn:hover {
+  background: #90caf9;
+}
+
+.friend-btn.selected {
+  background: #42a5f5;
+  color: white;
 }
 
 .submit-btn {
   width: 100%;
   padding: 12px;
-  background: #007bff;
-  color: #fff;
-  font-size: 17px;
-  font-weight: bold;
+  background: #1976d2;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.3s;
 }
 
 .submit-btn:hover {
-  background: #0056b3;
+  background: #1565c0;
 }
 
-/* Transactions list */
-#transaction-list {
-  margin-top: 25px;
-  padding: 0;
-  list-style: none;
-}
-
-#transaction-list li {
-  padding: 12px;
-  margin-bottom: 10px;
-  border-radius: 10px;
-  font-weight: bold;
-}
-
-.owed { /* "You are owed" */
-  background: #e6ffed;
-  color: #0a8f38;
-}
-
-.owe { /* "You owe" */
-  background: #ffe6e6;
-  color: #b30000;
+.result {
+  margin-top: 20px;
+  font-size: 15px;
+  color: #333;
+  text-align: left;
 }

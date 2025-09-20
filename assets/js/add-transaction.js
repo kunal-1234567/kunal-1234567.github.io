@@ -1,36 +1,36 @@
-const form = document.getElementById("form");
-const textInput = document.getElementById("text");
-const amountInput = document.getElementById("amount");
-const transactionList = document.createElement("ul");
-transactionList.id = "transaction-list";
-document.querySelector(".container").appendChild(transactionList);
+const balance = document.getElementById("balance");
+const money_plus = document.getElementById("money-plus");
+const money_minus = document.getElementById("money-minus");
+const transactionsList = document.getElementById("transactions");
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
+function updateUI() {
+  let transactions = JSON.parse(localStorage.getItem("transactions")) || [];
 
-  const description = textInput.value.trim();
-  const amount = parseFloat(amountInput.value);
-  const type = document.querySelector('input[name="type"]:checked').value;
+  // Reset UI
+  transactionsList.innerHTML = "";
 
-  if (description === "" || isNaN(amount)) {
-    alert("Please enter valid details.");
-    return;
-  }
+  let income = 0, expense = 0;
 
-  const li = document.createElement("li");
+  transactions.forEach(tx => {
+    const li = document.createElement("li");
+    li.textContent = `${tx.description} ${tx.type === "income" ? "+" : "-"}${tx.amount}`;
+    li.classList.add(tx.type === "income" ? "owed" : "owe");
 
-  if (type === "income") {
-    li.textContent = `${description} - You are owed $${amount.toFixed(2)}`;
-    li.classList.add("owed");
-  } else {
-    li.textContent = `${description} - You owe $${amount.toFixed(2)}`;
-    li.classList.add("owe");
-  }
+    transactionsList.prepend(li);
 
-  transactionList.appendChild(li);
+    if (tx.type === "income") {
+      income += tx.amount;
+    } else {
+      expense += tx.amount;
+    }
+  });
 
-  // Reset form
-  textInput.value = "";
-  amountInput.value = "";
-  document.getElementById("income").checked = true;
-});
+  const total = income - expense;
+
+  balance.textContent = total.toFixed(2);
+  money_plus.textContent = `+${income.toFixed(2)}`;
+  money_minus.textContent = `-${expense.toFixed(2)}`;
+}
+
+// Load when page opens
+updateUI();

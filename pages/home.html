@@ -27,6 +27,8 @@
         <li><a href="#">Activity</a></li>
         
       </ul>
+
+      
       <div class="profile-btn">
         <form action="../pages/profile.html">
           <button type="submit" id="profile-btn"><img src="../../profileimage.jpg" alt=""></button>
@@ -41,15 +43,15 @@
 
     
       <div class="balance-card">
-        <h3>Current Balance</h3>
+        <h3>Overall you should get</h3>
         <h2 id="balance">0</h2>
         <div class="summary">
           <div class="income-summary">
-            <span>Income</span>
+            <span>You are owed</span>
             <span id="money-plus" class="positive">0</span>
           </div>
           <div class="expense-summary">
-            <span>Expenses</span>
+            <span>You owed</span>
             <span id="money-minus" class="negative">0</span>
           </div>
         </div>
@@ -74,30 +76,93 @@
     </main>
   </div>
 
-  <div class="blocks-container">
-
-  <div class="block">
-    <h4>Time to add an expense </h4>
-    <form action="add-transaction.html">
-    <button class="btn btn-green" id="block1">+ Add Transaction</button>
-    </form>
-  </div>
-
-  
-  <div class="block">
-    <h2>Groups</h2>
-    <button class="btn btn-purple"> Create Group</button>
-    
-    <button class="btn btn-blue" id="block2"> Add Friend</button>
-  </div>
+  <div class="cards-container">
+  <div class="card add-friend">
+                <div class="icon-wrapper">
+                    <i class="fas fa-user-plus"></i>
+                </div>
+                <h3>To add new friends</h3>
+                <p>Connect with friends to start tracking expenses together</p>
+                <button>Add Friend</button>
+            </div>
+            
+            <div class="card create-group">
+                <div class="icon-wrapper">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>To create a new group</h3>
+                <p>Create groups for trips, households, or any shared expenses</p>
+                <button>Groups</button>
+            </div>
+        <div class="card add-expense">
+                <div class="icon-wrapper">
+                    <i class="fas fa-receipt"></i>
+                </div>
+                <h3>To add an expense</h3>
+                <p>Add expenses and split them with friends or groups</p>
+                <button>Add Expense</button>
+            </div>
+            
+            <div class="card settle-up">
+                <div class="icon-wrapper">
+                    <i class="fas fa-hand-holding-usd"></i>
+                </div>
+                <h3>To settle up</h3>
+                <p>Mark expenses as paid and clear balances with friends</p>
+                <button>Settle Up</button>
+            </div>
 </div>
 
+<footer class="footer">
+  <div class="footer-container">
+    <!-- Logo + About -->
+    <div class="footer-section">
+      <h2 class="logo">Splitzy</h2>
+      <p>Split expenses with friends and groups easily.</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Groups</a></li>
+        <li><a href="#">Activity</a></li>
+        <li><a href="#">Create</a></li>
+      </ul>
+    </div>
+
+    <!-- Resources -->
+    <div class="footer-section">
+      <h3>Resources</h3>
+      <ul>
+        <li><a href="#">Help Center</a></li>
+        <li><a href="#">FAQs</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+      </ul>
+    </div>
+
+    
+    <div class="footer-section">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="https://github.com/kunal-1234567"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+  </div>
+
   
+  <div class="footer-bottom">
+    <p>© 2025 Splitzy. All rights reserved.</p>
+  </div>
+</footer>
 
 
-   
 
-  
   <script src="../assets/js/home.js"></script>
 </body>
 </html>
