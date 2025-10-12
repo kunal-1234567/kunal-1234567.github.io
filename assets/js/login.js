@@ -7,7 +7,7 @@
                 event.preventDefault(); 
                 message.textContent = "❌ You must enter both e-mail and password!";
             } else {
-                message.textContent = ""; 
+                message.textContent = "You are logged in"; 
             }
         });
 

@@ -79,6 +79,8 @@ body {
 
 .profile-btn button:hover {
   background: rgb(236, 170, 170);
+  cursor: pointer;
+  border :2px solid black;
 }
 
 

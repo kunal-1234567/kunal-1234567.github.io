@@ -6,7 +6,7 @@ const transactionsList = document.getElementById("transactions");
 function updateUI() {
   let transactions = JSON.parse(localStorage.getItem("transactions")) || [];
 
-  // Reset UI
+
   transactionsList.innerHTML = "";
 
   let income = 0, expense = 0;
@@ -32,5 +32,5 @@ function updateUI() {
   money_minus.textContent = `-${expense.toFixed(2)}`;
 }
 
-// Load when page opens
+
 updateUI();
