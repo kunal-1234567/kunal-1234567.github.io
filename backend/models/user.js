@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema({
     type: Date, required: true
   },
   mobile:{
-    type: Number, required: true
+    type: String, required: true
   }
 },{ timestamps: true });
 
