@@ -1,3 +1,4 @@
+ const message = document.getElementById("message");
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("registerForm");
   const nameField = document.getElementById("name");
@@ -5,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const password = document.getElementById("password");
   const confirmPassword = document.getElementById("confirmPassword");
   const dob = document.getElementById("ageInput");
-  const message = document.getElementById("message");
+ 
   const mobile = document.getElementById("mo-number");
 
 
@@ -78,12 +79,22 @@ document.addEventListener("DOMContentLoaded", () => {
       "mobile": mobile
     })
   })
-    .then(response => response.json())
-    .then(data => {
-      console.log("POST Response:", data);
-      message.textContent = " Registration successful! Redirecting...";
+     .then(async (response) => {
+      const data = await response.json();
+      console.log(data);
+      console.log(response.ok);
+      if (response.ok) {
+        message.style.color = "green";
+        message.textContent = "Registration successful! Redirecting...";
+        setTimeout(() => {
+          window.location.href = "../../../index.html";
+        }, 2000);
+      } else {
+        message.textContent = data.message || "Registration failed.";
+      }
     })
-    .catch(error => console.error("Error:", error));
-  }
-
-  
+    .catch((error) => {
+      console.error("Error:", error);
+      message.textContent = "Server error. Try again later.";
+    });
+}
