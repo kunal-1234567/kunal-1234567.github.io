@@ -1,37 +1,53 @@
-    document.addEventListener("DOMContentLoaded", function() { 
-    const form = document.getElementById("loginForm");
-    const messageElement = document.getElementById("message");
-    if (!form || !messageElement) {
-        console.error("Form or message element not found!");  
-        return;
-    }
-    form.addEventListener("submit", function(event) {
-        
+    const addfriendMsg = document.getElementById("message");
+    document.getElementById("addFriendForm").addEventListener("submit", function(event) {
+        event.preventDefault();
         let name = document.getElementById("name").value.trim();
-        let mobile = document.getElementById("mobile").value.trim();
+        let email = document.getElementById("email").value.trim();
 
         
-        messageElement.textContent = "";
-        messageElement.style.color = "red";
-        if (name === "" || mobile === "") {
+        addfriendMsg.textContent = "";
+        addfriendMsg.style.color = "red";
+        if (name === "" || email === "") {
              event.preventDefault(); 
-            messageElement.textContent = "❌ Your details are not filled! Please enter both name and mobile number.";
+            addfriendMsg.textContent = "Please enter both name and email.";
             return;  
         }
-      
-        if (!/^\d{10}$/.test(mobile)) {
-            messageElement.textContent = "❌ Please enter a valid 10-digit mobile number (e.g., 1234567890).";
-            return;
-        }
-       
-        messageElement.style.color = "green";
-        messageElement.textContent = "✔ Friend added successfully!";
-
-      
-      
+        callAddFriendApi(name, email);
     });
 
-     setTimeout(() => {
-   
-}, 1000);
-});
+    function callAddFriendApi(name, email) {
+    const token = localStorage.getItem("token");
+    fetch("http://localhost:5000/api/friend", {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`
+    },
+    body: JSON.stringify({
+      "email": email,
+      "name": name      
+    })
+  })
+     .then(async (response) => {
+      const data = await response.json();
+      console.log(data);
+      console.log(response.ok);
+      if (response.ok) {
+        addfriendMsg.style.color = "green";
+        addfriendMsg.textContent = " Friend added successfully";         
+        window.location.href= "../pages/home.html";
+         } else if (response.status === 401) {
+            addfriendMsg.style.color = "red";
+        addfriendMsg.textContent = "Unauthorized. Please log in again.";
+        window.location.href= "../../../index.html";
+      } else {
+        addfriendMsg.style.color = "red";
+        addfriendMsg.textContent = "Failed to add friend. Try again.";
+      }
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      addfriendMsg.style.color = "red";
+      addfriendMsg.textContent = "Server error. Try again later.";
+    });
+}

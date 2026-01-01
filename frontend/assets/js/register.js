@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   function callRegisterApi(name,email,password,dob,mobile) {
-     fetch("http://localhost:5000/api/users/register", {
+     fetch("http://localhost:5000/api/register", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"

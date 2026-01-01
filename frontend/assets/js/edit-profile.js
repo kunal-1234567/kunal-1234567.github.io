@@ -10,23 +10,18 @@ const message = document.getElementById("message");
 form.addEventListener("submit", function(event) {
   event.preventDefault(); 
 
-  
-  if (!email.value && !mobile.value && !nameInput.value && !password.value) {
+   if (!email.value && !mobile.value && !nameInput.value && !password.value) {
     message.textContent = "Please fill at least one field!";
     message.style.color = "red";
     return;
   }
 
-  
-  let profileData = {
+   let profileData = {
     email: email.value,
     mobile: mobile.value,
     name: nameInput.value,
     password: password.value
   };
-
-
-  
 
   message.textContent = "Changes saved successfully!";
   message.style.color = "green";
