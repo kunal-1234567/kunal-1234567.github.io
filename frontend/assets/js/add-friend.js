@@ -1,8 +1,8 @@
     const addfriendMsg = document.getElementById("message");
     document.getElementById("addFriendForm").addEventListener("submit", function(event) {
         event.preventDefault();
-        let name = document.getElementById("name").value.trim();
-        let email = document.getElementById("email").value.trim();
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
 
         
         addfriendMsg.textContent = "";
@@ -17,8 +17,14 @@
 
     function callAddFriendApi(name, email) {
     const token = localStorage.getItem("token");
+    
+    
+
+    
+
+
     fetch("http://localhost:5000/api/friend", {
-    method: "PUT",
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
       "Authorization": `Bearer ${token}`

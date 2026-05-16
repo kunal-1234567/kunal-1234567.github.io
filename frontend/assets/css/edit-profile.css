@@ -1,83 +1,133 @@
-
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #f4f6f9;
+    background-color: #f5f6f8;
+    padding: 40px 20px;
 }
 
-.login-container {
-  background: #fff;
-  padding: 30px 40px;
-  border-radius: 12px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
-  width: 350px;
-  text-align: center;
+
+.page-title {
+    max-width: 1100px;
+    margin: 0 auto 30px;
+    font-size: 26px;
+    font-weight: 600;
+    color: #222;
 }
 
-.login-container h1 {
-  margin-bottom: 20px;
-  font-size: 22px;
-  color: #333;
+
+.cards-container {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(260px, 1fr));
+    gap: 25px;
 }
 
-.form-group {
-  text-align: left;
-  margin-bottom: 15px;
+
+.card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 25px 20px;
+    text-align: center;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.form-group label {
-  display: block;
-  margin-bottom: 6px;
-  font-size: 14px;
-  color: #555;
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
 }
 
-.form-group input {
-  width: 100%;
-  padding: 10px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  outline: none;
-  transition: 0.3s;
+
+.icon-wrapper {
+    width: 55px;
+    height: 55px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    background: #eef2ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.form-group input:focus {
-  border-color: #007bff;
-  box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.4);
+.icon-wrapper i {
+    font-size: 22px;
+    color: #4f46e5;
 }
 
-.button-group {
-  margin-top: 15px;
+
+.card h3 {
+    font-size: 18px;
+    margin-bottom: 6px;
+    color: #222;
 }
 
-.login-btn {
-  width: 100%;
-  padding: 12px;
-  background: red;
-  border: none;
-  border-radius: 20px;
-  color: #fff;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background 0.3s;
+.card p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
 }
 
-.login-btn:hover {
-  background: #0056b3;
+.card button {
+    padding: 10px 22px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    background: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.25s ease;
 }
+
+.card button:hover {
+    background: #f3f4f6;
+}
+
+
+.outline {
+    border-color: #4f46e5;
+    color: #4f46e5;
+}
+
+
+.card.warning .icon-wrapper {
+    background: #fff7ed;
+}
+
+.card.warning .icon-wrapper i {
+    color: #f97316;
+}
+
+
+.card.danger {
+    border: 1px solid #fca5a5;
+}
+
+.card.danger .icon-wrapper {
+    background: #fee2e2;
+}
+
+.card.danger .icon-wrapper i {
+    color: #dc2626;
+}
+
+.danger-btn {
+    border-color: #dc2626;
+    color: #dc2626;
+}
+
+.danger-btn:hover {
+    background: #fee2e2;
+}
+
 
 #message {
-  margin-top: 10px;
-  font-size: 14px;
-  color: red;
+    text-align: center;
+    margin-top: 25px;
+    color: #dc2626;
+    font-size: 14px;
 }

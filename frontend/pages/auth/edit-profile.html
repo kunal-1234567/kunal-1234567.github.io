@@ -3,44 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Edit Profile</title>
+
     <link rel="stylesheet" href="../../assets/css/edit-profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-     <div class="login-container">
-      <h1>Edit Your Profile</h1>
 
-      <div class="form-group">
-        <label for="email">To Change E-mail</label>
-        <input type="email" id="email" placeholder="enter new e-mail">
-      </div>
+<h2 class="page-title">Edit Profile</h2>
 
-      <div class="form-group">
-        <label for="number">To Change Mobile Number</label>
-        <input type="password" id="mobile-number" placeholder="enter new password">
-      </div>
+<div class="cards-container">
 
-      <div class="form-group">
-        <label for="text">To Change Name</label>
-        <input type="text" id="name" placeholder="enter new name">
-      </div>
 
-      
-      <div class="form-group">
-        <label for="password">To Change Password</label>
-        <input type="password" id="password" placeholder="enter new password">
-      </div>
+    <div class="card">
+        <div class="icon-wrapper">
+            <i class="fas fa-lock"></i>
+        </div>
+        <h3>Password</h3>
+        <p>Change your account password</p>
+        <button onclick="location.href='../change-password.html'">
+            Edit
+        </button>
+    </div>
 
-      <p id="message"></p>
+    
+    <div class="card">
+        <div class="icon-wrapper">
+            <i class="fas fa-phone"></i>
+        </div>
+        <h3>Primary Mobile Number</h3>
+        <p>change your primary mobile number</p>
+        <button>
+            Edit
+        </button>
+    </div>
 
-      <div class="button-group">
-        <form id="loginForm" action="../profile.html">
-          <button class="login-btn" type="submit">Save Changes</button>
-        </form>
+    
+    <div class="card">
+        <div class="icon-wrapper">
+            <i class="fas fa-envelope"></i>
+        </div>
+        <h3>Email Address</h3>
+        <p>Update your registered email</p>
+        <button onclick="location.href='../pages/change-email.html'">
+            Edit
+        </button>
+    </div>
 
-      
-      </div>
-      <script src="../../assets/js/edit-profile.js"></script>
-      
+    
+    <div class="card">
+        <div class="icon-wrapper">
+            <i class="fas fa-user"></i>
+        </div>
+        <h3>Username</h3>
+        <p>Change how your name appears</p>
+        <button>
+            Edit
+        </button>
+    </div>
+
+  
+
+</div>
+
+<p id="message"></p>
+
+<script src="../../assets/js/edit-profile.js"></script>
+
 </body>
 </html>

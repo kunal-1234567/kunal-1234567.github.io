@@ -2,36 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Add Transaction</title>
+  <title>Add Expense | Splitzy</title>
   <link rel="stylesheet" href="../assets/css/add-transaction.css">
 </head>
 <body>
-  <div class="transaction-container">
-    <h2 class="title">Add Transaction</h2>
 
-    <input
-      type="text"
-      id="description"
-      placeholder="Description (e.g., Dinner)"
-      class="input"
-    />
+  <div class="container">
+    <h2>Add Expense</h2>
 
-    <input
-      type="number"
-      id="amount"
-      placeholder="Amount"
-      class="input"
-    />
+    <input type="number" id="amount" placeholder="Amount (₹)" />
+    <input type="text" id="description" placeholder="Description" />
 
-    
-   <form action="../pages/home.html">
-     <button id="submitBtn" class="submit-btn">Add Transaction</button>
-    </form>
+    <label>Paid By</label>
+    <select id="paidBy"></select>
 
-    <div id="result" class="result"></div>
+    <label>Split Between</label>
+    <div class="members"></div>
+
+    <p id="addmessage"></p>
+
+    <button id="addExpenseBtn">Add Expense</button>
   </div>
 
-  <script src="script.js"></script>
+  <script src="../assets/js/add-transaction.js"></script>
 </body>
 </html>

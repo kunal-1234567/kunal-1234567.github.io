@@ -1,36 +1,64 @@
-const balance = document.getElementById("balance");
-const money_plus = document.getElementById("money-plus");
-const money_minus = document.getElementById("money-minus");
-const transactionsList = document.getElementById("transactions");
+const ownerId = "123"; // same value that works in backend
 
-function updateUI() {
-  let transactions = JSON.parse(localStorage.getItem("transactions")) || [];
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("JS loaded");
+  fetchFriends();
+});
 
+async function fetchFriends() {
+  console.log("Fetching friends for ownerId:", ownerId);
 
-  transactionsList.innerHTML = "";
+  try {
+    const response = await fetch(
+      `http://localhost:5000/api/friends/${ownerId}`
+    );
 
-  let income = 0, expense = 0;
+    console.log("Response status:", response.status);
 
-  transactions.forEach(tx => {
-    const li = document.createElement("li");
-    li.textContent = `${tx.description} ${tx.type === "income" ? "+" : "-"}${tx.amount}`;
-    li.classList.add(tx.type === "income" ? "owed" : "owe");
+    const result = await response.json();
+    console.log("API response:", result);
 
-    transactionsList.prepend(li);
-
-    if (tx.type === "income") {
-      income += tx.amount;
-    } else {
-      expense += tx.amount;
-    }
-  });
-
-  const total = income - expense;
-
-  balance.textContent = total.toFixed(2);
-  money_plus.textContent = `+${income.toFixed(2)}`;
-  money_minus.textContent = `-${expense.toFixed(2)}`;
+    displayFriends(result.data);
+  } catch (error) {
+    console.error("Fetch error:", error);
+  }
 }
 
+function displayFriends(friends) {
+  console.log("Friends received in frontend:", friends);
 
-updateUI();
+  const paidBySelect = document.getElementById("paidBy");
+  const membersDiv = document.querySelector(".members");
+
+  paidBySelect.innerHTML = "";
+  membersDiv.innerHTML = "";
+
+  const youOption = document.createElement("option");
+  youOption.value = ownerId;
+  youOption.textContent = "You";
+  paidBySelect.appendChild(youOption);
+
+  if (!friends || friends.length === 0) {
+    console.warn("No friends to display");
+    return;
+  }
+
+  friends.forEach(friend => {
+    const option = document.createElement("option");
+    option.value = friend.friend_id;
+    option.textContent = friend.name;
+    paidBySelect.appendChild(option);
+
+    const label = document.createElement("label");
+    label.style.display = "block";
+
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.value = friend.friend_id;
+
+    label.appendChild(checkbox);
+    label.append(" " + friend.name);
+
+    membersDiv.appendChild(label);
+  });
+}
